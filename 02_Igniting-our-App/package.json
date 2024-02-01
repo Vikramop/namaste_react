@@ -1,0 +1,14 @@
+{
+  "name": "02_igniting-our-app",
+  "version": "1.0.0",
+  "description": "The second chapter in the course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Vikram",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  }
+}
