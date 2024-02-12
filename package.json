@@ -2,8 +2,9 @@
   "name": "4_nameste-react",
   "version": "1.0.0",
   "description": "This is askay saini's react course.",
-  "main": "index.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Vikramop/namaste_react/issues"
   },
-  "homepage": "https://github.com/Vikramop/namaste_react#readme"
+  "homepage": "https://github.com/Vikramop/namaste_react#readme",
+  "dependencies": {
+    "parcel": "^2.11.0"
+  }
 }
