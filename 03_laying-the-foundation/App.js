@@ -7,8 +7,13 @@ import ReactDOM from 'react-dom/client';
 // class => className
 // tab-index => tabIndex
 
+// in curly braces {} we can write any code in this
+
+const number = 3000;
+
 const heading = (
   <h1 className="head" style={{ color: 'white' }}>
+    {number} <br />
     Namaste using jsx
   </h1>
 );
@@ -44,6 +49,9 @@ const Title = () => {
 
 const HeadingTitle = () => {
   <div>
+    // The below 3 things are the same
+    {Title()}
+    <Title></Title>
     <Title />
     <h2 style={{ color: 'white' }}>below title text</h2>
   </div>;
@@ -57,4 +65,4 @@ const jsxHeading = <h1 style={{ color: 'white' }}>Nameste React</h1>;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<HeadingTitle />);
+root.render(heading);
