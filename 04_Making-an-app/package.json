@@ -1,0 +1,23 @@
+{
+  "name": "02_igniting-our-app",
+  "version": "1.0.0",
+  "description": "The second chapter in the course.",
+  "scripts": {
+    "start": "rm -rf .parcel-cache && parcel index.html",
+    "build": "rm -rf .parcel-cache && parcel build index.html",
+    "test": "jest"
+  },
+  "author": "Vikram",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "Browserslist": [
+    "last 2 versions"
+  ]
+}
