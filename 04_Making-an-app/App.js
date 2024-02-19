@@ -44,7 +44,15 @@ const Header = () => {
 const RestaurantCard = () => {
   return (
     <div className="res-card">
+      <img
+        className="res-logo"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/x4uyxvihmg8qa3pddkgf"
+        alt="food"
+      />
       <h3>Meghna Foods</h3>
+      <h4>Biriyani, North India Cuisine</h4>
+      <p>Starting Time: 9 AM | Closing Time: 10 PM</p>
+      <p>4.4 stars</p>
     </div>
   );
 };
@@ -55,6 +63,15 @@ const Body = () => {
       <div className="search">Search</div>
 
       <div className="res-container">
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
         <RestaurantCard />
       </div>
     </div>
@@ -73,3 +90,5 @@ const AppLayout = () => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<AppLayout />);
+
+// 1:15:00
