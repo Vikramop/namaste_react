@@ -1335,6 +1335,10 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
 
+      {/* 
+      No key(not Recomended) >>>> index >>>> unique id (Best Practice)
+      */}
+
       <div className="res-container">
         {/* Instead of using loop, we can iterate using map  */}
 
@@ -1358,5 +1362,3 @@ const AppLayout = () => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<AppLayout />);
-
-// 14:00
