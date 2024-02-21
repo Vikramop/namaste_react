@@ -30,8 +30,8 @@
 }
 
 .res-card {
-  width: 200px;
-  height: 400px;
+  width: 190px;
+  height: auto;
   padding: 5px;
   cursor: pointer;
   margin: 5px;
