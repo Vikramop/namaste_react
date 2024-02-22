@@ -20,3 +20,22 @@
 - Different dev and prod bundles/build
 
   Read Documentation for more..
+
+/\*
+
+- Our App Structure \*
+
+- Header
+- - Logo
+- - Nav items
+- Body
+- - RestaurantContainer
+- - RestaurantCard
+- - Image
+- - Name of the Restaurant,cuisine, starts, etc
+- Footer
+- - Copyright
+- - Links
+- - Address
+- - Contact
+- \*/

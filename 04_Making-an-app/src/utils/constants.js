@@ -1,72 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+export const CDN_URL =
+  'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/';
 
-/* 
- * Our App Structure *
+export const LOGO_URL =
+  'https://penji.co/wp-content/uploads/2022/08/10.-mr.-d-food-logo.jpg';
 
-* Header
-* - Logo
-* - Nav items
-* Body
-* - RestaurantContainer
-*  - RestaurantCard
-*   - Image
-*   - Name of the Restaurant,cuisine, starts, etc
-* Footer
-* - Copyright
-* - Links
-* - Address
-* - Contact
-*
-*/
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://penji.co/wp-content/uploads/2022/08/10.-mr.-d-food-logo.jpg"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = (props) => {
-  const { resList } = props;
-
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, areaName } =
-    resList?.info;
-
-  return (
-    <div className="res-card">
-      <img
-        className="res-logo"
-        src={
-          'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/' +
-          cloudinaryImageId
-        }
-        alt="food"
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(', ')}</h4>
-      <p>{avgRating} stars</p>
-      <p>{costForTwo}</p>
-      <p>{areaName} </p>
-    </div>
-  );
-};
-
-const resList = [
+export const resList = [
   {
     info: {
       id: '684427',
@@ -1329,36 +1267,3 @@ const resList = [
     },
   },
 ];
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-
-      {/* 
-      No key(not Recomended) >>>> index >>>> unique id (Best Practice)
-      */}
-
-      <div className="res-container">
-        {/* Instead of using loop, we can iterate using map  */}
-
-        {resList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resList={restaurant} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(<AppLayout />);
