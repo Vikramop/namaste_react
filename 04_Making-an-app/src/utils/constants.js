@@ -4,94 +4,20 @@ export const CDN_URL =
 export const LOGO_URL =
   'https://penji.co/wp-content/uploads/2022/08/10.-mr.-d-food-logo.jpg';
 
-export const resList = [
+export let resList = [
   {
     info: {
       id: '684427',
       name: 'Cafe Amudham',
       cloudinaryImageId: 'e62351117b87978ba8af4c541d834053',
       locality: 'Lalbhagh  Siddapura',
-      areaName: 'Jayanagar',
-      costForTwo: '₹400 for two',
-      cuisines: ['South Indian', 'Snacks'],
+      cuisines: ['South Indian'],
       avgRating: 4.6,
       veg: true,
-      parentId: '396620',
-      avgRatingString: '4.6',
-      totalRatingsString: '1K+',
-      promoted: true,
-      adTrackingId:
-        'cid=11388237~p=2~eid=0000018d-c983-3b76-14af-e659008c0253~srvts=1708482837366~45995',
-      sla: {
-        deliveryTime: 29,
-        lastMileTravel: 3,
-        serviceability: 'SERVICEABLE',
-        slaString: '25-30 mins',
-        lastMileTravelString: '3.0 km',
-        iconType: 'ICON_TYPE_EMPTY',
-      },
-      availability: {
-        nextCloseTime: '2024-02-21 23:59:00',
-        opened: true,
-      },
-      badges: {
-        textExtendedBadges: [
-          {
-            iconId: 'guiltfree/GF_Logo_android_3x',
-            shortDescription: 'options available',
-            fontColor: '#7E808C',
-          },
-        ],
-      },
-      isOpen: true,
-      type: 'F',
-      badgesV2: {
-        entityBadges: {
-          textBased: {},
-          imageBased: {},
-          textExtendedBadges: {
-            badgeObject: [
-              {
-                attributes: {
-                  iconId: 'guiltfree/GF_Logo_android_3x',
-                  description: '',
-                  shortDescription: 'options available',
-                  fontColor: '#7E808C',
-                },
-              },
-            ],
-          },
-        },
-      },
-      aggregatedDiscountInfoV3: {
-        header: '20% OFF',
-        subHeader: 'UPTO ₹50',
-      },
-      differentiatedUi: {
-        displayType: 'ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT',
-        differentiatedUiMediaDetails: {
-          mediaType: 'ADS_MEDIA_ENUM_IMAGE',
-          lottie: {},
-          video: {},
-        },
-      },
-      reviewsSummary: {},
-      displayType: 'RESTAURANT_DISPLAY_TYPE_DEFAULT',
-      restaurantOfferPresentationInfo: {},
-      externalRatings: {
-        aggregatedRating: {
-          rating: '--',
-        },
-      },
-      ratingsDisplayPreference: 'RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY',
-    },
-    analytics: {},
-    cta: {
-      link: 'swiggy://menu?restaurant_id=684427',
-      text: 'RESTAURANT_MENU',
-      type: 'DEEPLINK',
+      deliveryTime: 29,
     },
   },
+
   {
     info: {
       id: '2415',
