@@ -12,25 +12,28 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      'https://www.swiggy.com/mapi/homepage/getCards?lat=12.9351929&lng=77.62448069999999'
-      // 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING'
+      // 'https://www.swiggy.com/mapi/homepage/getCards?lat=12.9351929&lng=77.62448069999999'
+      'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING'
     );
 
     const json = await data.json();
     console.log(json);
     setListOfRes(
-      json?.data?.success?.cards[1]?.gridWidget?.gridElements?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     console.log(
-      json?.data?.success?.cards[1]?.gridWidget?.gridElements?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  if (resList.length === 0) {
-    return <div>Loading...</div>;
-  }
+  // Conditional Rendering- rendering according to condition
+  // if (listOfRes?.length === 0) {
+  //   return <Shimmer />;
+  // }
 
-  return (
+  return listOfRes?.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
