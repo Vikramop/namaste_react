@@ -4,7 +4,10 @@ import { resList } from '../utils/constants';
 import Shimmer from './Shimmer';
 
 const Body = () => {
-  const [listOfRes, setListOfRes] = useState(resList);
+  const [listOfRes, setListOfRes] = useState([]);
+  const [filteredRes, setFilterdRes] = useState([]);
+
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     fetchData();
@@ -12,13 +15,15 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      // 'https://www.swiggy.com/mapi/homepage/getCards?lat=12.9351929&lng=77.62448069999999'
       'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING'
     );
 
     const json = await data.json();
     console.log(json);
     setListOfRes(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilterdRes(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     console.log(
@@ -36,6 +41,28 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+            className="search-box"
+          />
+          <button
+            onClick={() => {
+              console.log(searchText);
+              const filteredRes = listOfRes.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+
+              setFilterdRes(filteredRes);
+            }}
+          >
+            search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
@@ -43,7 +70,7 @@ const Body = () => {
               (res) => res.info.avgRating > 4.5
             );
             setListOfRes(filteredList);
-            console.log(filteredList);
+            // console.log(filteredList);
           }}
         >
           Top Rated Resturant
@@ -57,7 +84,7 @@ const Body = () => {
       <div className="res-container">
         {/* Instead of using loop, we can iterate using map  */}
 
-        {listOfRes?.map((restaurant) => (
+        {filteredRes?.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
