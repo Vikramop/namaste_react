@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import RestaurantCard from './RestaurantCard';
 import { resList } from '../utils/constants';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 const Body = () => {
   const [listOfRes, setListOfRes] = useState([]);
@@ -89,7 +90,12 @@ const Body = () => {
         {/* Instead of using loop, we can iterate using map  */}
 
         {filteredRes?.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link
+            key={restaurant.info.id}
+            to={'/restaurants/' + restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
