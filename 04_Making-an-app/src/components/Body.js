@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard, { withPromotedLabel } from './RestaurantCard';
 import { resList } from '../utils/constants';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
@@ -16,6 +16,8 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const RestaurantWithPromoted = withPromotedLabel(RestaurantCard);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -50,8 +52,8 @@ const Body = () => {
   return listOfRes?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
+    <div className="body px-20">
+      <div className="my-6 flex gap-12 items-center justify-center">
         <div className="search">
           <input
             type="text"
@@ -59,7 +61,7 @@ const Body = () => {
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
-            className="search-box"
+            className="border-2 border-black mr-6 "
           />
           <button
             onClick={() => {
@@ -70,14 +72,15 @@ const Body = () => {
 
               setFilterdRes(filteredRes);
             }}
+            className="bg-black rounded-md px-6 py-2 text-white"
           >
             search
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="bg-black px-6 py-2 rounded-md text-white"
           onClick={() => {
-            const filteredList = listOfRes?.filter(
+            const filteredList = listOfRes.filter(
               (res) => res.info.avgRating > 4.5
             );
             setListOfRes(filteredList);
@@ -92,7 +95,7 @@ const Body = () => {
         No key(not Recomended) >>>> index >>>> unique id (Best Practice)
         */}
 
-      <div className="res-container">
+      <div className="flex flex-wrap gap-5 justify-center">
         {/* Instead of using loop, we can iterate using map  */}
 
         {filteredRes?.map((restaurant) => (
@@ -100,7 +103,12 @@ const Body = () => {
             key={restaurant.info.id}
             to={'/restaurants/' + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.promoted ? (
+              <RestaurantWithPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
+            {/* <RestaurantCard resData={restaurant} /> */}
           </Link>
         ))}
       </div>
